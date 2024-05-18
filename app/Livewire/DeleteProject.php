@@ -24,7 +24,7 @@ class DeleteProject extends Component
             Deadline::where('projectid', $this->projectObj->id)->delete();
             Notes::where('projectid', $this->projectObj->id)->delete();
             Status::where('projectid', $this->projectObj->id)->delete();
-            redirect('/dashboard');
+            $this->redirect('/dashboard', navigate: true);
         }
     }
 

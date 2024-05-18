@@ -13,11 +13,11 @@
             <form wire:submit="createProject()" method="post">
                 <div class="form-group">
                     <label for="" class="text-light">Project Name</label>
-                    <input type="text" wire:model="name" class="form-control" placeholder="Project Name">
+                    <input type="text" wire:model.blur="name" class="form-control" placeholder="Project Name">
                 </div>
                 <div class="form-group">
                     <label for="" class="text-light">Project Description</label>
-                    <textarea wire:model="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea wire:model.blur="description" id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-light">Create</button>

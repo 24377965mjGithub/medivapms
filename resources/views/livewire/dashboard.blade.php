@@ -7,7 +7,7 @@
     </section>
     <section class="first pb-4">
         <div class="container">
-            <a href="{{ route('add-project') }}"><button class="btn btn-light">Create Project</button></a>
+            <a wire:navigate href="{{ route('add-project') }}"><button class="btn btn-light">Create Project</button></a>
         </div>
     </section>
     <section class="second2">
@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         @foreach ($projectSearchResult as $result)
-                            <a href="{{ route('view-project', ['projectid' => $result->id]) }}" style="text-decoration: none;">{{ $result->name }}</a> <br>
+                            <a wire:navigate href="{{ route('view-project', ['projectid' => $result->id]) }}" style="text-decoration: none;">{{ $result->name }}</a> <br>
                         @endforeach
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                                         <b>Deadline:</b> {{ Carbon\Carbon::parse($deadline::where('projectid', $project->id)->value('deadline'))->format('F j. Y g:i A') }} ({{ Carbon\Carbon::parse($deadline::where('projectid', $project->id)->value('deadline'))->diffForHumans() }})<br>
                                     @endif
                                 </p>
-                                <a href="{{ route('view-project', ['projectid' => $project->id]) }}"><button class="btn btn-dark">View Project</button></a>
+                                <a wire:navigate href="{{ route('view-project', ['projectid' => $project->id]) }}"><button class="btn btn-dark">View Project</button></a>
                             </div>
                         </div>
                     </div>

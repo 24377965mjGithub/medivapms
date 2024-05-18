@@ -28,11 +28,11 @@ class SetDeadline extends Component
     public function setDeadline() {
         if (Deadline::where('projectid', $this->projectObj->id)->count() == 0) {
             if (Deadline::create(['projectid' => $this->projectObj->id, 'userid' => Auth::user()->id, 'deadline' => $this->date." ".$this->time])) {
-                redirect('/view-project/'.$this->projectObj->id);
+                $this->redirect('/view-project/'.$this->projectObj->id, navigate: true);
             }
         } else {
             if (Deadline::where('projectid', $this->projectObj->id)->update(['userid' => Auth::user()->id, 'deadline' => $this->date." ".$this->time])) {
-                redirect('/view-project/'.$this->projectObj->id);
+                $this->redirect('/view-project/'.$this->projectObj->id, navigate: true);
             }
         }
     }

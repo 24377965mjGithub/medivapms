@@ -25,7 +25,7 @@ class EditNote extends Component
         $this->validate();
 
         if (Notes::where('id', $this->noteObj->id)->update(['note' => $this->note])) {
-            redirect('/view-project/'.$this->noteObj->projectid);
+            $this->redirect('/view-project/'.$this->noteObj->projectid, navigate: true);
         }
     }
 

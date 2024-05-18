@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Projects;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -11,13 +12,15 @@ class CreateProject extends Component
 {
     #[Title('Mediva Digital - Create Project')]
 
+    #[Rule('required|min:3')]
     public $name;
+    #[Rule('required')]
     public $description;
 
-    public $rules = [
-        'name' => 'required',
-        'description' => 'required'
-    ];
+    // public $rules = [
+    //     'name' => 'required',
+    //     'description' => 'required'
+    // ];
 
     public function createProject() {
         $this->validate();

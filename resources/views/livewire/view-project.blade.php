@@ -24,10 +24,10 @@
 
                     <hr class="text-light">
 
-                    <a href="{{ route('dashboard') }}"><button class="btn btn-success m-2">Back to Dashboard</button></a>
-                    <a href="{{ route('edit-project', ['projectid' => $project->id]) }}"><button class="btn btn-info m-2">Edit Project</button></a>
-                    <a href="{{ route('delete-project', ['projectid' => $project->id]) }}"><button class="btn btn-danger m-2">Delete Project</button></a>
-                    <a href="{{ route('set-deadline', ['projectid' => $project->id]) }}"><button class="btn btn-warning m-2">Set/Update Deadline</button></a>
+                    <a wire:navigate href="{{ route('dashboard') }}"><button class="btn btn-success m-2">Back to Dashboard</button></a>
+                    <a wire:navigate href="{{ route('edit-project', ['projectid' => $project->id]) }}"><button class="btn btn-info m-2">Edit Project</button></a>
+                    <a wire:navigate href="{{ route('delete-project', ['projectid' => $project->id]) }}"><button class="btn btn-danger m-2">Delete Project</button></a>
+                    <a wire:navigate href="{{ route('set-deadline', ['projectid' => $project->id]) }}"><button class="btn btn-warning m-2">Set/Update Deadline</button></a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="card">
@@ -52,8 +52,8 @@
                                     {{ OsiemSiedem\Autolink\Facades\Autolink::convert($allNote->note) }} - {{ $allNote->created_at->diffForHumans() }}
                                 </p>
 
-                                <a href="{{ route('edit-note', ['noteid' => $allNote->id]) }}"><button class="btn btn-light text-info">Edit</button></a>
-                                <a href="{{ route('delete-note', ['noteid' => $allNote->id]) }}"><button class="btn btn-light text-danger">Delete</button></a>
+                                <a wire:navigate href="{{ route('edit-note', ['noteid' => $allNote->id]) }}"><button class="btn btn-light text-info">Edit</button></a>
+                                <a wire:navigate href="{{ route('delete-note', ['noteid' => $allNote->id]) }}"><button class="btn btn-light text-danger">Delete</button></a>
 
                                 <hr>
                             @empty

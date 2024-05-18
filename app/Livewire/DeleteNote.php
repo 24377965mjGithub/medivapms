@@ -20,7 +20,7 @@ class DeleteNote extends Component
 
     public function deleteNote() {
         if (Notes::where('id', $this->noteObj->id)->delete()) {
-            redirect('/view-project/'.$this->noteObj->projectid);
+            $this->redirect('/view-project/'.$this->noteObj->projectid, navigate: true);
         }
     }
 

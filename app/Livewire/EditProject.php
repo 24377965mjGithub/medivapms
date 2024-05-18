@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Projects;
+use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -10,13 +11,12 @@ class EditProject extends Component
 {
     #[Title('Mediva Digital - Edit Project')]
     public $projectObj;
-    public $name;
-    public $description;
 
-    public $rules = [
-        'name' => 'required',
-        'description' => 'required'
-    ];
+    #[Rule('required|min:3')]
+    public $name;
+
+    #[Rule('required')]
+    public $description;
 
     public function mount($projectid) {
         $this->projectObj = Projects::where('id', $projectid)->first();
@@ -28,7 +28,7 @@ class EditProject extends Component
         $this->validate();
 
         if (Projects::where('id', $this->projectObj->id)->update(['name' => $this->name, 'description' => $this->description])) {
-            redirect('/view-project/'.$this->projectObj->id);
+            $this->redirect('/view-project/'.$this->projectObj->id, navigate: true);
         }
     }
 
