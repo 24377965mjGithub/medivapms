@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="{{ url('build/assets/app-D-sv12UV.css') }}">
         <link rel="icon" href="{{ url('storage/favicon.png') }}">
-
+        <style> #nprogress .bar { background: #725E47 !important; } </style>
     </head>
     <body class="bg-dark">
         {{ $slot }}
